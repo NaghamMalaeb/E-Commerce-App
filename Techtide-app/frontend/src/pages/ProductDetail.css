@@ -1,0 +1,129 @@
+.product-detail {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 56px;
+  padding-top: 40px;
+  padding-bottom: 80px;
+}
+
+.product-detail-gallery {
+  animation: fadeSlideIn .5s ease-out;
+}
+
+.product-detail-main-image {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border: 1px solid var(--line, #eceff3);
+  border-radius: 20px;
+  background: var(--paper-raised, #f7f8fa);
+  box-shadow: 0 12px 30px rgba(0,0,0,.05);
+}
+
+.product-detail-main-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .6s cubic-bezier(.2,.9,.4,1);
+}
+
+.product-detail-main-image:hover img {
+  transform: scale(1.03);
+}
+
+.product-detail-thumbs {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.product-detail-thumbs button {
+  width: 64px;
+  height: 64px;
+  border: 1px solid var(--line, #eceff3);
+  border-radius: 12px;
+  padding: 0;
+  overflow: hidden;
+  background: none;
+  cursor: pointer;
+  transition: border-color .2s ease, transform .2s ease;
+}
+
+.product-detail-thumbs button:hover {
+  transform: translateY(-2px);
+}
+
+.product-detail-thumbs button.active {
+  border-color: var(--ink, #0f172a);
+  box-shadow: 0 0 0 2px rgba(139,90,60,.15);
+}
+
+.product-detail-thumbs img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-detail-info {
+  animation: fadeSlideIn .6s ease-out .1s backwards;
+}
+
+.product-detail-info h1 {
+  font-size: 1.9rem;
+  margin: 12px 0 14px;
+  letter-spacing: -.02em;
+}
+
+.product-detail-price {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.product-detail-desc {
+  color: var(--ink-soft, #475569);
+  margin-bottom: 20px;
+  max-width: 52ch;
+  line-height: 1.6;
+}
+
+.product-detail-stock {
+  font-size: .85rem;
+  color: #15803d;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.product-detail-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.product-detail-actions select {
+  padding: 0 14px;
+  border: 1px solid var(--line, #eceff3);
+  border-radius: 10px;
+  background: #fff;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.product-detail-message {
+  margin-top: 14px;
+  font-size: .88rem;
+  color: #15803d;
+  font-weight: 600;
+}
+
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 780px) {
+  .product-detail {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
